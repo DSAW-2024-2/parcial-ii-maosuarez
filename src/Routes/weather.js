@@ -18,8 +18,8 @@ const authMiddleware = (req, res, next) => {
 };
 
 router.get("/weather", authMiddleware, (req, res) => {
-  const latitude = req.query.latitude;
-  const longitude = req.query.longitude;
+  const latitude = req.query.latitude || 0;
+  const longitude = req.query.longitude || 0;
 
   const url =
     "https://api.open-meteo.com/v1/forecast?latitude=" +
