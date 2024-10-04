@@ -33,7 +33,13 @@ router.get("/weather", authMiddleware, (req, res) => {
   promise
     .then((response) => response.json())
     .then((data) => {
-      res.json(data);
+      const answer = {
+        weather_current_temperature:
+          data.current_weather.temperature +
+          " " +
+          data.current_weather_units.temperature,
+      };
+      res.json(answer);
     });
 });
 
