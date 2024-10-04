@@ -25,7 +25,8 @@ router.get("/weather", authMiddleware, (req, res) => {
     "https://api.open-meteo.com/v1/forecast?latitude=" +
     latitude +
     "&longitude=" +
-    longitude;
+    longitude +
+    "&current_weather=true";
 
   const promise = fetch(url);
 
